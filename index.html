@@ -34,22 +34,15 @@
             min-height: 100vh;
             background: linear-gradient(rgba(255,255,255,0.4), rgba(255,255,255,0.4)), url('linkou-cityscape.webp') center/cover;
             display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center;
-            padding: 80px 20px 40px 20px; /* 增加上方 padding 避免被導覽列擋住 */
+            padding: 80px 20px 40px 20px; 
         }
         
-        /* 專屬頭像區塊：完整保留不裁切 */
         .profile-img {
-            width: 100%;
-            max-width: 280px; /* 控制照片最大寬度，避免過大 */
-            height: auto; /* 高度自動，保持原圖比例 */
-            border-radius: 15px; /* 微微的圓角，比直角更溫暖 */
-            border: 4px solid var(--primary-gold);
-            box-shadow: 0 8px 20px rgba(0,0,0,0.15);
-            background-color: #fff;
-            object-fit: contain;
+            width: 100%; max-width: 280px; height: auto; 
+            border-radius: 15px; border: 4px solid var(--primary-gold);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.15); background-color: #fff; object-fit: contain;
         }
 
-        /* 英雄卡片排版 */
         .hero-card {
             background: rgba(255, 255, 255, 0.92); padding: 30px; border-radius: 20px;
             box-shadow: 0 10px 30px rgba(0,0,0,0.1); 
@@ -57,56 +50,55 @@
             display: flex; flex-direction: column; align-items: center; gap: 25px;
         }
         
-        .hero-card-content {
-            display: flex; flex-direction: column; align-items: center;
-        }
+        .hero-card-content { display: flex; flex-direction: column; align-items: center; }
 
-        header h1 { font-size: 2rem; color: var(--primary-gold); margin-bottom: 10px; }
-        header p { font-size: 1.1rem; margin-bottom: 20px; }
+        header h1 { font-size: 2rem; color: var(--primary-gold); margin-bottom: 10px; line-height: 1.3; }
+        header p { font-size: 1.1rem; margin-bottom: 20px; color: #555; }
 
-        /* 數據展示：一目瞭然強項 */
+        /* 數據展示：豪哥確認版 */
         .stats-grid {
             display: grid; grid-template-columns: repeat(2, 1fr); gap: 15px; margin-bottom: 20px; width: 100%; max-width: 400px;
         }
         .stat-item { background: #fff; padding: 15px; border-radius: 10px; border-bottom: 3px solid var(--primary-gold); text-align: center; }
         .stat-item h3 { color: var(--primary-gold); font-size: 1.4rem; }
+        .stat-item p { margin-bottom: 0; font-size: 0.95rem; font-weight: bold; }
 
-        /* 底部固定按鈕：LINE 優先 */
+        /* 底部固定按鈕 */
         .sticky-contact {
             position: fixed; bottom: 0; width: 100%; display: flex; z-index: 2000;
         }
         .sticky-btn {
-            flex: 1; padding: 15px; text-align: center; font-weight: bold; text-decoration: none; display: flex; align-items: center; justify-content: center; gap: 8px;
+            flex: 1; padding: 15px; text-align: center; font-weight: bold; text-decoration: none; display: flex; align-items: center; justify-content: center; gap: 8px; font-size: 1.1rem;
         }
         .btn-line { background: var(--line-green); color: white; }
         .btn-phone { background: var(--primary-gold); color: white; }
 
-        section { padding: 60px 20px; max-width: 1000px; margin: auto; padding-bottom: 100px; }
-        .section-title { text-align: center; color: var(--primary-gold); margin-bottom: 30px; position: relative; }
-        .section-title::after { content: ''; display: block; width: 50px; height: 3px; background: var(--primary-gold); margin: 10px auto; }
+        section { padding: 60px 20px; max-width: 900px; margin: auto; padding-bottom: 100px; }
+        .section-title { text-align: center; color: var(--primary-gold); margin-bottom: 40px; position: relative; font-size: 1.8rem; }
+        .section-title::after { content: ''; display: block; width: 60px; height: 3px; background: var(--primary-gold); margin: 15px auto; }
 
-        /* 榮譽榜優化 */
-        .honor-list { list-style: none; }
-        .honor-list li { background: white; margin-bottom: 10px; padding: 15px; border-radius: 10px; box-shadow: 0 2px 5px rgba(0,0,0,0.05); }
-
-        /* 電腦與平板的雙欄橫向排版 */
-        @media (min-width: 769px) {
-            .hero-card {
-                flex-direction: row; /* 照片在左，文字在右 */
-                text-align: left;
-                padding: 40px;
-            }
-            .hero-card-content {
-                align-items: flex-start; /* 文字靠左對齊 */
-            }
-            .stats-grid {
-                margin-left: 0;
-            }
-            header h1 { font-size: 2.4rem; }
+        /* 豐富版榮譽榜 (卡片設計) */
+        .feature-grid {
+            display: grid; grid-template-columns: 1fr; gap: 20px;
         }
+        .feature-card {
+            background: white; padding: 25px; border-radius: 15px; box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            border-left: 5px solid var(--primary-gold);
+        }
+        .feature-card h3 { color: var(--text-dark); margin-bottom: 10px; font-size: 1.2rem; display: flex; align-items: center; gap: 8px; }
+        .feature-card p { color: #666; line-height: 1.7; font-size: 1rem; }
+        
+        .cta-text { text-align: center; margin-top: 40px; font-size: 1.2rem; font-weight: bold; color: var(--primary-gold); }
 
+        @media (min-width: 769px) {
+            .hero-card { flex-direction: row; text-align: left; padding: 40px; }
+            .hero-card-content { align-items: flex-start; }
+            .stats-grid { margin-left: 0; }
+            header h1 { font-size: 2.3rem; }
+            .feature-grid { grid-template-columns: repeat(2, 1fr); }
+        }
         @media (max-width: 768px) {
-            header h1 { font-size: 1.6rem; }
+            header h1 { font-size: 1.7rem; }
             .profile-img { max-width: 220px; }
         }
     </style>
@@ -122,34 +114,50 @@
 
 <header>
     <div class="hero-card">
-        <!-- 照片完整展示區塊 -->
-        <img src="amy-profile.png" alt="千萬經紀人 鍾秀蘭 AMY" class="profile-img">
+        <!-- 照片加入了最高載入優先權 fetchpriority="high" -->
+        <img src="amy-profile.jpg" alt="千萬經紀人 鍾秀蘭 AMY" class="profile-img" fetchpriority="high">
         
-        <!-- 文字與數據區塊 -->
         <div class="hero-card-content">
-            <h1>專業、熱情、親切</h1>
-            <p>深耕林口 A7 A8 A9 重劃區<br>連續四年千萬經紀人員 鍾秀蘭 (AMY)</p>
+            <h1>為您尋找的不只是房子<br>而是下一個幸福的家</h1>
+            <p>深耕北台灣，精準掌握林口 A7、A8、A9 房市脈動。<br>買賣託付，請交給最懂您的香港 AMY。</p>
             <div class="stats-grid">
                 <div class="stat-item"><h3>金仲獎</h3><p>全國最高榮譽</p></div>
-                <div class="stat-item"><h3>100+</h3><p>年度成交案件</p></div>
+                <div class="stat-item"><h3>千萬業績</h3><p>連續四年達標</p></div>
             </div>
         </div>
     </div>
 </header>
 
-<section id="honors">
-    <h2 class="section-title">為什麼選擇 AMY?</h2>
-    <ul class="honor-list">
-        <li>🏅 <strong>全國金仲獎得主：</strong> 房仲業最高榮譽，專業備受肯定。</li>
-        <li>💰 <strong>千萬經紀人員：</strong> 連續四年達成千萬業績紀錄。</li>
-        <li>🇭🇰 <strong>香港背景：</strong> 獨特的港人背景，更能理解多元客群的需求。</li>
-        <li>📍 <strong>深耕北台灣：</strong> 專精林口 A7-A9 區域，掌握最即時的房產動態。</li>
-    </ul>
+<section id="features">
+    <h2 class="section-title">為什麼買賣房屋，他們都指名 AMY？</h2>
+    
+    <div class="feature-grid">
+        <div class="feature-card">
+            <h3>🏅 頂尖專業，安全把關</h3>
+            <p>榮獲房仲業最高殿堂「全國金仲獎」肯定。以最嚴謹的態度審視每一筆交易細節，確保您的買賣過程零風險，安心交付。</p>
+        </div>
+        <div class="feature-card">
+            <h3>💰 千萬業績，實力見證</h3>
+            <p>連續四年達成千萬業績，多次榮登北區店面業績榜首。強大的談判實力與客源人脈，能為您爭取最理想的成交價格。</p>
+        </div>
+        <div class="feature-card">
+            <h3>🇭🇰 獨特視角，真誠同理</h3>
+            <p>來自香港的背景，讓 AMY 具備更細膩的同理心與國際視野。無論您是尋求成家圓夢的首購族，還是移居台灣的新朋友，都能提供無溝通障礙的貼心服務。</p>
+        </div>
+        <div class="feature-card">
+            <h3>📍 在地深耕，精準媒合</h3>
+            <p>長年駐守林口，對各社區的建材優劣、學區發展與未來建設瞭若指掌。拒絕無效帶看，為您精準篩選出最契合需求的優質好案。</p>
+        </div>
+    </div>
+
+    <div class="cta-text">
+        買房賣房是人生大事，讓最專業的經紀人為您引路。<br>現在就加入 LINE，免費領取專屬您的林口房產分析！
+    </div>
 </section>
 
 <!-- 底部固定按鈕 -->
 <div class="sticky-contact">
-    <a href="tel:0958766352" class="sticky-btn btn-phone">📞 電話諮詢</a>
+    <a href="tel:0958766352" class="sticky-btn btn-phone">📞 打給 AMY</a>
     <a href="https://line.me/ti/p/Gg7hCTXNJx" class="sticky-btn btn-line">💬 LINE 諮詢</a>
 </div>
 
